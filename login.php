@@ -27,11 +27,11 @@ if(is_null($username)) {
 }
 // Se houve envio dos dados
 else {
-    $query = pg_query($con, "SELECT password FROM usuarios WHERE login='$username'");
+    $query = pg_query($con, "SELECT senha FROM usuarios WHERE email='$username'");
 
 	if(pg_num_rows($query) > 0){
 		$row = pg_fetch_array($query);
-		if($password == $row['password']){
+		if($password == $row['senha']){
 			$response["success"] = 1;
 		}
 		else {
