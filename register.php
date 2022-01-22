@@ -12,12 +12,14 @@ $con = pg_connect(getenv("DATABASE_URL"));
 $response = array();
  
 // check for required fields
-if (isset($_POST['newLogin']) && isset($_POST['newPassword'])) {
+if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['telefone']) && isset($_POST['nome']) {
  
-	$newLogin = trim($_POST['newLogin']);
-	$newPassword = trim($_POST['newPassword']);
+	$email = trim($_POST['email']);
+	$senha = trim($_POST['senha']);
+	$telefone = trim($_POST['telefone']);
+	$nome = trim($_POST['nome']);
 		
-	$usuario_existe = pg_query($con, "SELECT login FROM usuarios WHERE login='$newLogin'");
+	$usuario_existe = pg_query($con, "SELECT email FROM usuarios WHERE email='$email'");
 	// check for empty result
 	if (pg_num_rows($usuario_existe) > 0) {
 		$response["success"] = 0;
@@ -25,7 +27,7 @@ if (isset($_POST['newLogin']) && isset($_POST['newPassword'])) {
 	}
 	else {
 		// mysql inserting a new row
-		$result = pg_query($con, "INSERT INTO usuarios(login, password) VALUES('$newLogin', '$newPassword')");
+		$result = pg_query($con, "INSERT INTO usuarios(email, nome, telefone, senha ) VALUES('$email', '$nome', '$telefone', '$senha')");
 	 
 		if ($result) {
 			$response["success"] = 1;
