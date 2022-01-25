@@ -12,7 +12,7 @@ $con = pg_connect(getenv("DATABASE_URL"));
 $response = array();
  
 // check for required fields
-if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['telefone']) && isset($_POST['nome']) {
+if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['telefone']) && isset($_POST['nome'])){
  
 	$email = trim($_POST['email']);
 	$senha = trim($_POST['senha']);
