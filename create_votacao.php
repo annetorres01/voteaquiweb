@@ -57,7 +57,7 @@ if ($isAuth){
 		$data_hora_criacao = date("Y-m-d H:i:s", strtotime($_POST['data_hora_criacao']));
 		$data_hora_fim = date("Y-m-d H:i:s", strtotime($_POST['data_hora_fim']));
 		$titulo = $_POST['titulo'];
-		$datafim = $_POST['descricao'];
+		$descricao = $_POST['descricao'];
 
 		
 		// A proxima linha insere um novo produto no BD.
